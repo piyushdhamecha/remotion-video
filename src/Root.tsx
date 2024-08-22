@@ -1,6 +1,5 @@
 import { Composition } from "remotion";
-import { HelloWorld, myCompSchema } from "./HelloWorld";
-import { Logo, myCompSchema2 } from "./HelloWorld/Logo";
+import Image, { imageSchema } from "./Image";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -8,37 +7,39 @@ export const RemotionRoot: React.FC = () => {
   return (
     <>
       <Composition
-        // You can take the "id" to render a video:
-        // npx remotion render src/index.ts <id> out/video.mp4
-        id="HelloWorld"
-        component={HelloWorld}
-        durationInFrames={150}
+        id="Image1"
+        component={Image}
+        durationInFrames={30}
         fps={30}
-        width={1920}
-        height={1080}
-        // You can override these props for each render:
-        // https://www.remotion.dev/docs/parametrized-rendering
-        schema={myCompSchema}
+        width={400}
+        schema={imageSchema}
+        height={600}
         defaultProps={{
-          titleText: "Welcome to Remotion",
-          titleColor: "#000000",
-          logoColor1: "#91EAE4",
-          logoColor2: "#86A8E7",
+          imageName: "image1.jpg",
         }}
       />
-
-      {/* Mount any React component to make it show up in the sidebar and work on it individually! */}
       <Composition
-        id="OnlyLogo"
-        component={Logo}
-        durationInFrames={150}
+        id="Image2"
+        component={Image}
+        durationInFrames={30}
         fps={30}
-        width={1920}
-        height={1080}
-        schema={myCompSchema2}
+        width={400}
+        schema={imageSchema}
+        height={600}
         defaultProps={{
-          logoColor1: "#91dAE2" as const,
-          logoColor2: "#86A8E7" as const,
+          imageName: "image2.jpg",
+        }}
+      />
+      <Composition
+        id="Image3"
+        component={Image}
+        durationInFrames={30}
+        fps={30}
+        width={400}
+        schema={imageSchema}
+        height={600}
+        defaultProps={{
+          imageName: "image3.jpg",
         }}
       />
     </>
