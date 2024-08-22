@@ -8,4 +8,4 @@ COPY src ./src
 COPY public ./public
 # Install the right package manager and dependencies. Adjust if needed.
 RUN npm i
-CMD ["npx", "remotion studio"]
+CMD ["npm", "start"]
